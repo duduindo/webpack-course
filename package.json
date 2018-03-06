@@ -13,6 +13,7 @@
     "babel-polyfill": "*",
     "babel-preset-env": "*",
     "css-loader": "*",
+    "express": "^4.16.2",
     "extract-loader": "*",
     "file-loader": "*",
     "html-loader": "*",
@@ -20,10 +21,13 @@
     "style-loader": "*",
     "url-loader": "*",
     "webpack": "*",
-    "webpack-dev-server": "*"
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "*",
+    "webpack-hot-middleware": "^2.20.0"
   },
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
-    "build": "webpack --config=config/webpack.dev.js"
+    "build": "webpack --config=config/webpack.dev.js",
+    "dev": "node src/server/main.js"
   }
 }
