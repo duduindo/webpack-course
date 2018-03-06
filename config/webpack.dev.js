@@ -10,14 +10,50 @@ module.exports = {
     publicPath: "/js"
   },
   devServer: {
-    contentBase: "dist"
+    contentBase: "dist",
+    overlay: true
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+        use: [
+          { loader: "style-loader" }, 
+          { loader: "css-loader" }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: "[name].html"
+            }
+          },
+          {
+            loader: 'extract-loader'
+          },
+          {
+            loader: 'html-loader',
+            options: {
+              attrs: ["img:src"]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpg|gif|png)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[name]-[hash:8].[ext]"
+            }
+          }
+        ]
       }
+
     ]
   }
 }
