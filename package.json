@@ -18,7 +18,7 @@
     "extract-loader": "*",
     "file-loader": "*",
     "html-loader": "*",
-    "html-webpack-plugin": "*",
+    "html-webpack-plugin": "^2.30.1",
     "style-loader": "*",
     "url-loader": "*",
     "webpack": "*",
@@ -28,6 +28,6 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
     "build": "webpack --config=config/webpack.dev.js",
-    "dev": "node src/server/main.js"
+    "dev": "nodemon --watch config --watch src/server src/server/main.js"
   }
 }

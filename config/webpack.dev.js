@@ -1,5 +1,6 @@
 const path = require("path")
 const webpack = require("webpack")
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -19,6 +20,7 @@ module.exports = {
     reload: true
   },
   module: {
+
     rules: [
       {
         test: /\.js$/,
@@ -66,6 +68,9 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // Enable HMR
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new HTMLWebpackPlugin({
+      template: "./src/index.html"
+    })
   ]
 }
